@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script configures an Ubuntu server
+
+cp /etc/hosts /etc/hosts.copy
+sed -i s/127.*$/127.0.0.2\\tlocalhost\\n8.8.8.8\\tfacebook.com/g hosts_tmp
+cp -f hosts_tmp /etc/hosts
