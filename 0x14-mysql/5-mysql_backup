@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 # Check if the MySQL password is provided as an argument
 
-if [ -z "$1" ]; then
-    echo "Usage: $0 <mysql_password>"
-    exit 1
-fi
+#if [ -z "$1" ]; then
+#   echo "Usage: $0 <mysql_password>"
+#   exit 1
+#fi
 
 # Define the current date in the required format (day-month-year)
 current_date=$(date +'%d-%m-%Y')
 
 # MySQL user and password
 mysql_user="root"
-mysql_password="$1"
+#mysql_password="$1"
+if [ -z "$1" ]; then
+    mysql_password=""
+else
+    mysql_password="-p$1"
+fi
 
 # Output file names
 dump_file="backup.sql"
